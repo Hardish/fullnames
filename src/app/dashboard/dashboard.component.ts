@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
       this.dashboardService.searchName(this.firstName, this.lastName)
       .subscribe(
         _ => {
-          this.message = this.firstName + " " + this.lastName + " is valid name.";
+          this.message = "valid";
         },
         err => {
           this.message = err.message;
@@ -48,19 +48,16 @@ export class DashboardComponent implements OnInit {
             console.log("first and last name added");
             this.message = "";
             if (this.firstName) {
-              this.message = this.firstName + " is added";
+            this.message = "provide last name for search."
             }
             if (this.lastName) {
-              this.message = this.message + this.lastName + " is added. ";
+              this.message = "provide  first name for search."
             }
             this.message = this.firstName + " " + this.lastName + " added.";
             this.firstName = "";
             this.lastName = "";
           })
-          .catch( error => {
-            console.log(error);
-            this.router.navigate(['/dashboard']);
-        });
+      
     }
     else {
       this.message = "provide first and last name for search."
